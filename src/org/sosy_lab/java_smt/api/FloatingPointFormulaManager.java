@@ -8,6 +8,7 @@
 
 package org.sosy_lab.java_smt.api;
 
+import com.microsoft.z3.Native;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.sosy_lab.common.rationals.Rational;
