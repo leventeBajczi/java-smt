@@ -13,7 +13,7 @@ package org.sosy_lab.java_smt.solvers.smtinterpol;
 import de.uni_freiburg.informatik.ultimate.logic.AnnotatedTerm;
 import de.uni_freiburg.informatik.ultimate.logic.Annotation;
 import de.uni_freiburg.informatik.ultimate.logic.Term;
-import io.github.cvc5.Proof;
+//import io.github.cvc5.Proof;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
@@ -46,7 +46,7 @@ class SmtInterpolProofNodeCreator {
 
     Deque<SmtTermFrame> stack = new ArrayDeque<>();
 
-    Map<Proof, ProofNode> computed = new HashMap<>();
+    Map<Object, ProofNode> computed = new HashMap<>();
 
     stack.push(new SmtTermFrame(rootProof));
 

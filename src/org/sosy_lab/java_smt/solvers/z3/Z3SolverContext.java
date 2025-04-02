@@ -223,6 +223,8 @@ public final class Z3SolverContext extends AbstractSolverContext {
     Preconditions.checkState(!closed, "solver context is already closed");
     final ImmutableMap<String, Object> solverOptions =
         ImmutableMap.<String, Object>builder()
+            .put(":fp.xform.inline_linear", false)
+            .put(":fp.xform.inline_eager", false)
             .put(":random-seed", extraOptions.randomSeed)
             .put(
                 ":model",

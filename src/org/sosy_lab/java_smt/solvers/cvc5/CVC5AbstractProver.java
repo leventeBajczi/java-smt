@@ -14,7 +14,6 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.github.cvc5.CVC5ApiException;
-import io.github.cvc5.Proof;
 import io.github.cvc5.Result;
 import io.github.cvc5.Solver;
 import io.github.cvc5.Term;
@@ -243,18 +242,7 @@ abstract class CVC5AbstractProver<T> extends AbstractProverWithAllSat<T> {
 
   @Override
   public ProofNode getProof() {
-
-    Proof[] proofs = solver.getProof();
-    if (proofs == null || proofs.length == 0) {
       throw new IllegalStateException("No proof available");
-    }
-
-    CVC5ProofProcessor pp = new CVC5ProofProcessor(creator, (ProverEnvironment) this);
-    try {
-      return pp.fromCVC5Proof(proofs[0]);
-    } catch (CVC5ApiException pE) {
-      throw new RuntimeException(pE);
-    }
   }
 
   @Override

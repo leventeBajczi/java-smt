@@ -42,7 +42,7 @@ class Z3TheoremProver extends Z3AbstractProver implements ProverEnvironment {
       @Nullable PathCounterTemplate pLogfile,
       ShutdownNotifier pShutdownNotifier) {
     super(creator, pMgr, pOptions, pLogfile, pShutdownNotifier);
-    z3solver = Native.mkSolver(z3context);
+    z3solver = Native.mkSolverForLogic(z3context, Native.mkStringSymbol(z3context, "HORN"));
     Native.solverIncRef(z3context, z3solver);
 
     interruptListener = reason -> Native.solverInterrupt(z3context, z3solver);
